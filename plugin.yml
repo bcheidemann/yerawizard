@@ -1,4 +1,10 @@
 name: YerAWizard
 main: com.childishalbino.yerawizard.Main
 version: 0.0.1
+api-version: 1.13
 commands:
+   basic:
+      description: This is a demo command.
+      usage: /<command> [player]
+      permission: yerawizard.basic
+      permission-message: You don't have permission to execute this command.
