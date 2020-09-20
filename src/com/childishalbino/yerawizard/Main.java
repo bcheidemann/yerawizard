@@ -20,8 +20,6 @@ public class Main extends JavaPlugin {
 		ItemStack bedrock = new ItemStack(Material.STICK, 1);
 		
 		bedrock.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
-		
-		// bedrock.addEnchantment(Enchantment.SWEEPING_EDGE, 1);
 
 		ItemMeta itemmeta = bedrock.getItemMeta();
 		itemmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
