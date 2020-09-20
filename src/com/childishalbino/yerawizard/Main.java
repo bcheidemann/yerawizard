@@ -17,6 +17,8 @@ public class Main extends JavaPlugin {
 		
 		getLogger().info("Yer all wizards now!");
 		
+		getServer().getPluginManager().registerEvents(new SpellEventHandler(), this);
+		
 		ItemStack bedrock = new ItemStack(Material.STICK, 1);
 		
 		bedrock.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
@@ -26,6 +28,8 @@ public class Main extends JavaPlugin {
 		itemmeta.setDisplayName("Wand");
 
 		bedrock.setItemMeta(itemmeta);
+		
+		// TODO: remove deprecated code
 		
 		@SuppressWarnings("deprecation")
 		ShapedRecipe recipe = new ShapedRecipe(bedrock);
