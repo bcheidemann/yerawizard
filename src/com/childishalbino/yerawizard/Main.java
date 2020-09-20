@@ -17,6 +17,8 @@ public class Main extends JavaPlugin {
 		
 		getLogger().info("Yer all wizards now!");
 		
+		getServer().getPluginManager().registerEvents(new SpellEventHandler(), this);
+		
 		ItemStack bedrock = new ItemStack(Material.STICK, 1);
 		
 		bedrock.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
