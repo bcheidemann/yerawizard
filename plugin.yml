@@ -1,0 +1,4 @@
+name: YerAWizard
+main: com.childishalbino.yerawizard.Main
+version: 0.0.1
+commands:
