@@ -27,6 +27,8 @@ public class Main extends JavaPlugin {
 
 		bedrock.setItemMeta(itemmeta);
 		
+		// TODO: remove deprecated code
+		
 		@SuppressWarnings("deprecation")
 		ShapedRecipe recipe = new ShapedRecipe(bedrock);
 		
