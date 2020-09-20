@@ -4,7 +4,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-// import org.bukkit.enchantments.Enchantment;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,10 +19,13 @@ public class Main extends JavaPlugin {
 		
 		ItemStack bedrock = new ItemStack(Material.STICK, 1);
 		
+		bedrock.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
+		
 		// bedrock.addEnchantment(Enchantment.SWEEPING_EDGE, 1);
 
 		ItemMeta itemmeta = bedrock.getItemMeta();
-		itemmeta.setDisplayName("wand");
+		itemmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemmeta.setDisplayName("Wand");
 
 		bedrock.setItemMeta(itemmeta);
 		
