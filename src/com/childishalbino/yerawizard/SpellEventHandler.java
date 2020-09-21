@@ -1,6 +1,10 @@
 package com.childishalbino.yerawizard;
 
+import org.bukkit.Effect;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -13,8 +17,10 @@ public class SpellEventHandler implements Listener {
 	@SuppressWarnings("deprecation")
 	@EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-        	PlayerInventory inventory = event.getPlayer().getInventory();
+		Player player = event.getPlayer();
+        if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
+        	Location playerLocation = player.getLocation();
+        	PlayerInventory inventory = player.getInventory();
     		ItemStack offHandItem = inventory.getItemInOffHand();
     		ItemStack wandItem = event.getItem();
     		// ItemStack mainHandItem = inventory.getItemInMainHand();
@@ -23,11 +29,13 @@ public class SpellEventHandler implements Listener {
         			&& wandItem.getType().equals(Material.STICK))
         	{
         		if (offHandItem.getType().equals(Material.CLOCK)) {
-        			event.getPlayer().chat("Abracadabra!");
-            		event.getPlayer().getWorld().setTime(0);
+        			player.chat("Abracadabra!");
+        			player.getWorld().playSound(playerLocation, Sound.BLOCK_RESPAWN_ANCHOR_DEPLETE, 1, 0);
+        			player.getWorld().playEffect(playerLocation, Effect.DRAGON_BREATH, 0);
+        			player.getWorld().setTime(0);
             		offHandItem.setAmount(offHandItem.getAmount() - 1);
             		// TODO: do we need to call updateInventory?
-            		event.getPlayer().updateInventory();
+            		player.updateInventory();
         		}
         	}
         }
