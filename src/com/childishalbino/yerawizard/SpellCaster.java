@@ -14,7 +14,6 @@ public class SpellCaster {
 	
 	private static boolean isWand(ItemStack item) {
 		if (item.getType().equals(Material.STICK)
-				&& item.getItemMeta().getDisplayName().equals("Wand")
 				&& item.containsEnchantment(Enchantment.KNOCKBACK)) {
 			return true;
 		}
