@@ -34,30 +34,7 @@ public class SpellEventHandler implements Listener {
 			default:
 				break;
 		}
-		
-		
-		/*Player player = event.getPlayer();
-        if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
-        	Location playerLocation = player.getLocation();
-        	PlayerInventory inventory = player.getInventory();
-    		ItemStack offHandItem = inventory.getItemInOffHand();
-    		ItemStack wandItem = event.getItem();
-    		// ItemStack mainHandItem = inventory.getItemInMainHand();
-        	// TODO: add proper check so players can't just rename an item to "Wand"
-        	if (wandItem.getItemMeta().getDisplayName().equals("Wand")
-        			&& wandItem.getType().equals(Material.STICK))
-        	{
-        		if (offHandItem.getType().equals(Material.CLOCK)) {
-        			player.chat("Abracadabra!");
-        			player.getWorld().playSound(playerLocation, Sound.BLOCK_RESPAWN_ANCHOR_DEPLETE, 1, 0);
-        			player.getWorld().playEffect(playerLocation, Effect.DRAGON_BREATH, 0);
-        			player.getWorld().setTime(0);
-            		offHandItem.setAmount(offHandItem.getAmount() - 1);
-            		// TODO: do we need to call updateInventory?
-            		player.updateInventory();
-        		}
-        	}
-        }*/
+
     }
 	
 }
