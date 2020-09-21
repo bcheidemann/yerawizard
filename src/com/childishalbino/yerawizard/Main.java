@@ -11,6 +11,34 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class Main extends JavaPlugin {
+	
+	public void addWandItemRecipe() {
+		
+		ItemStack wandItem = new ItemStack(Material.STICK, 1);
+		
+		wandItem.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
+
+		ItemMeta itemmeta = wandItem.getItemMeta();
+		itemmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		itemmeta.setDisplayName("Wand");
+
+		wandItem.setItemMeta(itemmeta);
+		
+		// TODO: remove deprecated code
+		
+		@SuppressWarnings("deprecation")
+		ShapedRecipe recipe = new ShapedRecipe(wandItem);
+		
+		recipe.shape("BCB", "BSB", "BNB");
+		
+		recipe.setIngredient('C', Material.END_CRYSTAL);
+		recipe.setIngredient('S', Material.STICK);
+		recipe.setIngredient('B', Material.EXPERIENCE_BOTTLE);
+		recipe.setIngredient('N', Material.NETHERITE_BLOCK);
+		
+		getServer().addRecipe(recipe);
+		
+	}
 
 	@Override
 	public void onEnable() {
@@ -19,26 +47,7 @@ public class Main extends JavaPlugin {
 		
 		getServer().getPluginManager().registerEvents(new SpellEventHandler(), this);
 		
-		ItemStack bedrock = new ItemStack(Material.STICK, 1);
-		
-		bedrock.addUnsafeEnchantment(Enchantment.KNOCKBACK, 10);
-
-		ItemMeta itemmeta = bedrock.getItemMeta();
-		itemmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-		itemmeta.setDisplayName("Wand");
-
-		bedrock.setItemMeta(itemmeta);
-		
-		// TODO: remove deprecated code
-		
-		@SuppressWarnings("deprecation")
-		ShapedRecipe recipe = new ShapedRecipe(bedrock);
-		
-		recipe.shape("***", "***", "***");
-		
-		recipe.setIngredient('*', Material.OAK_LOG);
-		
-		getServer().addRecipe(recipe);
+		this.addWandItemRecipe();
 		
 	}
 	
